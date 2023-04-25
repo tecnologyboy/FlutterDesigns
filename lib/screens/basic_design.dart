@@ -57,11 +57,12 @@ class Title extends StatelessWidget {
   }
 }
 
+//TODO: mover los botones a un widget separado y agregar la descripcion.
+
 class ButtonSection extends StatelessWidget {
   const ButtonSection({
     super.key,
   });
-
   @override
   Widget build(BuildContext context) {
     return Container(
