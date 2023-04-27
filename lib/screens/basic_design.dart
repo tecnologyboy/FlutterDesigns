@@ -69,48 +69,53 @@ class ButtonSection extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 70, vertical: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.phone,
-                  color: Colors.blue,
-                ),
-              ),
-              const Text('CALL', style: TextStyle(color: Colors.blue))
-            ],
+        children: const [
+          CustomButton(
+            buttonName: 'CALL',
+            buttonColor: Colors.blue,
+            buttonicon: Icons.phone,
           ),
-          Column(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.directions,
-                  color: Colors.blue,
-                ),
-              ),
-              const Text('ROUTE', style: TextStyle(color: Colors.blue))
-            ],
+          CustomButton(
+            buttonName: 'ROUTE',
+            buttonColor: Colors.blue,
+            buttonicon: Icons.directions,
           ),
-          Column(
-            children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.share,
-                  color: Colors.blue,
-                ),
-              ),
-              const Text(
-                'SHARE',
-                style: TextStyle(color: Colors.blue),
-              )
-            ],
-          )
+          CustomButton(
+            buttonName: 'SHARE',
+            buttonColor: Colors.blue,
+            buttonicon: Icons.share,
+          ),
         ],
       ),
+    );
+  }
+}
+
+class CustomButton extends StatelessWidget {
+  final String buttonName;
+  final IconData buttonicon;
+  final Color buttonColor;
+
+  const CustomButton({
+    super.key,
+    required this.buttonName,
+    required this.buttonicon,
+    required this.buttonColor,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        IconButton(
+          onPressed: () {},
+          icon: Icon(
+            Icons.phone,
+            color: buttonColor,
+          ),
+        ),
+        Text(buttonName, style: TextStyle(color: buttonColor))
+      ],
     );
   }
 }
